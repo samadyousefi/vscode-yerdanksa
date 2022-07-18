@@ -1,0 +1,58 @@
+{
+	"name": "YerdanksaRejshth",
+	"displayName": "YerdanksaRejshth",
+	"description": "Yerdanksa Rejshth Speech to code extension for Visual Studio Code.",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.45.0"
+	},
+	"publisher": "Yerdanksa",
+	"author":{
+		"name":"Samad Yousefi"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:stt.dictate"
+	],
+	"main": "./out/extension.js",
+	"icon": "images/icon.png",
+	
+	"contributes": {
+		"commands": [
+			{
+				"command": "stt.dictate",
+				"title": "Yerdanksa: Dictate"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "npm run copyfiles && tsc -p ./tsconfig.client.json && tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "npm run copyfiles && tsc -p ./tsconfig.client.json && tsc -watch -p ./",
+		"watchclient": "npm run copyfiles && tsc -watch -p ./tsconfig.client.json",
+		"copyfiles": "node copy-files.js",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.45.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"@typescript-eslint/parser": "^2.30.0",
+		"@typescript-eslint/eslint-plugin": "^2.30.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	},
+	"dependencies": {
+		"express": "^4.17.1",
+		"open": "^7.0.4",
+		"ws": "^7.4.6"
+	}
+}
